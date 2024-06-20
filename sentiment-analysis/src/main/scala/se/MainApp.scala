@@ -15,7 +15,7 @@ object MainApp {
     // Treniranje i čuvanje modela
     val model = Classifier.trainAndSaveModel(trainReviews)
 
-    // Klasifikacija recenzija na testnom setu i evaluacija modela
+    // Klasifikacija recenzija i evaluacija modela
     val predictions = testReviews.map(review => Classifier.classifyReview(review.content, model))
     val labels = testReviews.map(review => if (review.score >= 3) "positive" else "negative")
 
